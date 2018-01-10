@@ -19,7 +19,13 @@ public class TestTransctionalApplication {
 //	        }  
 		SpringUtil.setApplicationContext(run);
 		TestTransctional service=SpringUtil.getBean(TestTransctional.class);
+//		service.test1();
+//		service.test2();
+		testTransctional(service);
+	}
+	static void testTransctional(TestTransctional service){
 		service.test1();
 //		service.test2();
+//		service.test3();
 	}
 }

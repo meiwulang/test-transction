@@ -30,7 +30,7 @@ public class TestTransctional {
 		insert("1",new Date());
 //		throw new RuntimeException("出错了");
 	}
-	@Transactional(propagation=Propagation. REQUIRES_NEW)
+	@Transactional(propagation=Propagation. REQUIRED)
 	public void test3() {
 		insert("2",new Date());
 		throw new RuntimeException("出错了");
