@@ -15,12 +15,13 @@ import org.springframework.transaction.annotation.Transactional;
  * @version V1.0
  */
 @Service
+//@Transactional(propagation=Propagation.REQUIRED)
 public class TestTransctional {
 
 	@Autowired
 	TestMapper mapper;
 
-	@Transactional(propagation=Propagation.REQUIRED)
+	@Transactional(propagation=Propagation.SUPPORTS)
 	public void test1() {
 		insert("0",null);
 		test2();
@@ -30,7 +31,7 @@ public class TestTransctional {
 		insert("1",new Date());
 //		throw new RuntimeException("出错了");
 	}
-	@Transactional(propagation=Propagation. REQUIRED)
+	@Transactional(propagation=Propagation. REQUIRES_NEW)
 	public void test3() {
 		insert("2",new Date());
 		throw new RuntimeException("出错了");
