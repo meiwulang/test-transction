@@ -31,7 +31,7 @@ public class TestService2 {
 		insert("1",new Date());
 //		throw new RuntimeException("出错了");
 	}
-	@Transactional(propagation=Propagation. NEVER)
+	@Transactional(propagation=Propagation. REQUIRES_NEW)
 	public void test3() {
 		insert("2",new Date());
 		throw new RuntimeException("出错了");

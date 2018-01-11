@@ -17,3 +17,12 @@
 >     ii  若service这几个方法之间存在调用关系，则存在调用关系的方法只开启一个事务，回滚/提交由调用者的事务决定，   
 >     其他方法各自的事务方法回滚/提交分开处理，互不影响   
 >4、当 方法内部调用其他对象的含有事务的方法 满足spring事务设计 （例如 control.test 调用service1.test1 service1.test1内部调用了 service2.test2）
+>5、事务的实现方式是aop环切，如果想解决结论2的问题 ，可以通过修改
+*开启支持@AspectJ风格的切面声明 添加注解 @EnableAspectJAutoProxy(exposeProxy=true)*
+*代码内部调用改为aop调用  参考方法com.test.jdbc.service.TestTransctional.test1()*
+*并引入以来around文件所在的jar*
+>        &lt;dependency>  
+>            &lt;groupId>org.springframework</groupId>  
+>            &lt;artifactId>spring-aspects</artifactId>  
+>        &lt;/dependency> 
+

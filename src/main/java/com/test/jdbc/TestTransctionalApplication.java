@@ -3,12 +3,14 @@ package com.test.jdbc;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import com.test.jdbc.service.TestTransctional;
 import com.test.jdbc.util.SpringUtil;
 
 @SpringBootApplication
 //@EnableTransactionManagement
+@EnableAspectJAutoProxy(exposeProxy=true)
 public class TestTransctionalApplication {
 
 	public static void main(String[] args) {
