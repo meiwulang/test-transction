@@ -16,25 +16,22 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 //@Transactional(propagation=Propagation.REQUIRED)
-public class TestTransctional {
+public class TestService2 {
 
 	@Autowired
 	TestMapper mapper;
-	@Autowired 
-	TestService2 service2;
 
 	@Transactional(propagation=Propagation.REQUIRED)
 	public void test1() {
 		insert("0",null);
-		service2.test3();
-//		test2();
-//		test3();
+		test2();
+		test3();
 	}
 	public void test2() {
 		insert("1",new Date());
 //		throw new RuntimeException("出错了");
 	}
-	@Transactional(propagation=Propagation. REQUIRES_NEW)
+	@Transactional(propagation=Propagation. NEVER)
 	public void test3() {
 		insert("2",new Date());
 		throw new RuntimeException("出错了");
