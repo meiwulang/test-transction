@@ -16,3 +16,4 @@
 >     i   若service这几个方法之间不存在调用关系，则test1、test3、test4各自的方法回滚/提交分开处理，互不影响   
 >     ii  若service这几个方法之间存在调用关系，则存在调用关系的方法只开启一个事务，回滚/提交由调用者的事务决定，   
 >     其他方法各自的事务方法回滚/提交分开处理，互不影响   
+>4、当 方法内部调用其他对象的含有事务的方法 满足spring事务设计 （例如 control.test 调用service1.test1 service1.test1内部调用了 service2.test2）
