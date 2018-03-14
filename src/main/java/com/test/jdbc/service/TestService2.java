@@ -21,11 +21,11 @@ public class TestService2 {
 	@Autowired
 	TestMapper mapper;
 
-	@Transactional(propagation=Propagation.REQUIRED)
+	@Transactional(propagation=Propagation.NOT_SUPPORTED)
 	public void test1() {
 		insert("0",null);
-		test2();
-		test3();
+//		test2();
+//		test3();
 	}
 	public void test2() {
 		insert("1",new Date());

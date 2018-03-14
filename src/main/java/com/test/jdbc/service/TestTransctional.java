@@ -3,7 +3,6 @@ package com.test.jdbc.service;
 import java.util.Date;
 import java.util.HashMap;
 
-import org.springframework.aop.framework.AopContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -27,10 +26,11 @@ public class TestTransctional {
 	@Transactional(propagation=Propagation.REQUIRED)
 	public void test1() {
 		insert("0",null);
-//		service2.test2();
+		service2.test1();
+		throw new RuntimeException("出错了");
 //		service2.test3();
-		((TestTransctional) AopContext.currentProxy()).test2();
-		((TestTransctional) AopContext.currentProxy()).test3();
+//		((TestTransctional) AopContext.currentProxy()).test2();
+//		((TestTransctional) AopContext.currentProxy()).test3();
 	}
 	@Transactional(propagation=Propagation.REQUIRES_NEW)
 	public void test2() {
